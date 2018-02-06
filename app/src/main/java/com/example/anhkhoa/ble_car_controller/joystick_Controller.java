@@ -142,12 +142,12 @@ public class joystick_Controller extends AppCompatActivity implements JoystickVi
         }
         mcharacteristic = mGattCharacteristics.get(2).get(0);
         final int charaPop = mcharacteristic.getProperties();
-        if ((charaPop | BluetoothGattCharacteristic.PROPERTY_READ) > 0){
-            if (mNotifyCharacteristic != null){
+        if ((charaPop | BluetoothGattCharacteristic.PROPERTY_READ) > 0) {
+            if (mNotifyCharacteristic != null) {
                 setCharacteristicNotification(mNotifyCharacteristic, false);
             }
         }
-        if ((charaPop | BluetoothGattCharacteristic.PROPERTY_NOTIFY) > 0){
+        if ((charaPop | BluetoothGattCharacteristic.PROPERTY_NOTIFY) > 0) {
             mNotifyCharacteristic = mcharacteristic;
             setCharacteristicNotification(mcharacteristic, true);
         }
@@ -157,7 +157,7 @@ public class joystick_Controller extends AppCompatActivity implements JoystickVi
      * Enables or disables notification on a give characteristic.
      *
      * @param characteristic Characteristic to act on.
-     * @param enabled If true, enable notification.  False otherwise.
+     * @param enabled        If true, enable notification.  False otherwise.
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public void setCharacteristicNotification(BluetoothGattCharacteristic characteristic,
@@ -182,9 +182,11 @@ public class joystick_Controller extends AppCompatActivity implements JoystickVi
     public void onJoystickMoved(float xPercent, float yPercent, int id) {
         xtextview.setText("X:" + String.valueOf(xPercent));
         ytextview.setText("Y:" + String.valueOf(yPercent));
-        String sx = String.format("%.2f", xPercent);
-        String sy = String.format("%.2f", yPercent);
-        mcharacteristic.setValue(sx + " " + sy);
+//        String sx = String.format("%.2f", xPercent);
+//        String sy = String.format("%.2f", yPercent);
+        xPercent *= 100;
+        yPercent *= 100;
+        mcharacteristic.setValue((int) xPercent + " " + (int) yPercent + "*");
         mBluetoothGatt.writeCharacteristic(mcharacteristic);
     }
 }
