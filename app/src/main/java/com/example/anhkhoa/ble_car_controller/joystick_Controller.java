@@ -182,7 +182,9 @@ public class joystick_Controller extends AppCompatActivity implements JoystickVi
     public void onJoystickMoved(float xPercent, float yPercent, int id) {
         xtextview.setText("X:" + String.valueOf(xPercent));
         ytextview.setText("Y:" + String.valueOf(yPercent));
-        mcharacteristic.setValue(xPercent + " " + yPercent);
+        String sx = String.format("%.2f", xPercent);
+        String sy = String.format("%.2f", yPercent);
+        mcharacteristic.setValue(sx + " " + sy);
         mBluetoothGatt.writeCharacteristic(mcharacteristic);
     }
 }
