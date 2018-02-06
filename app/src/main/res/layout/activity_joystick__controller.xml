@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.anhkhoa.ble_car_controller.joystick_Controller">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tdevice_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NAME"/>
+
+            <TextView
+                android:id="@+id/tdevice_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADDRESS"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/Status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disabled"
+                android:textColor="#ba0050"
+                android:layout_marginLeft="5dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <TextView
+                android:id="@+id/xfield"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X:"
+                android:textColor="#300099"/>
+
+            <TextView
+                android:id="@+id/yfield"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Y:"
+                android:textColor="#300099"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/data_read"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#db028f"/>
+
+        <com.example.anhkhoa.ble_car_controller.JoystickView
+            android:id="@+id/joystick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

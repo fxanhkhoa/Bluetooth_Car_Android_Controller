@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BLE_CAR_Controller</string>
+    <string name="unknown_device">Unknown Device</string>
+</resources>
